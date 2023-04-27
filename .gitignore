@@ -43,7 +43,7 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-sample_code/
-/sample_code
 graphic/
 /graphic
+
+lib/main_template.dart
