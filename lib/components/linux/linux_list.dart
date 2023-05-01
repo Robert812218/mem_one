@@ -12,7 +12,7 @@ class LinuxCommand{
 List<LinuxCommand> convertData(List<List<String>> command) {
 	List<LinuxCommand> linuxCommands = [];
 		
-	for (var i = 0; i < linuxCommands.length; i++) {
+	for (var i = 0; i < command.length; i++) {
 		String name = command[i][0];
 		String description = command[i][1];
 
