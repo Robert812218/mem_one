@@ -1,12 +1,34 @@
-Map<String, dynamic> = createObj(List<String> arr) {
-	Map<String, dynamic) obj = {};
+class LinuxCommand{
+	String name, description;
+	List<String> keystrokes;
 
-	List<String> newArr = arr[0].split(" ");
-	obj['display'] = arr[0];
-	obj['description'] = newArr;
-
-	return obj;
+	LinuxCommand({
+		required this.name,
+		required this.description,
+		required this.keystrokes,
+	});
 }
+
+List<LinuxCommand> convertData(List<List<String>> command) {
+	List<LinuxCommand> linuxCommands = [];
+		
+	for (var i = 0; i < linuxCommands.length; i++) {
+		String name = command[i][0];
+		String description = command[i][1];
+
+		List<String> keystrokes = command[i][0].split('');
+
+		linuxCommands.add(LinuxCommand(
+			name: name,
+			description: description,
+			keystrokes: keystrokes,
+		));
+	}
+	
+	return linuxCommands;
+}
+
+
 
 
 List<List<String>> linuxBasicCommands = [
@@ -21,7 +43,7 @@ List<List<String>> linuxBasicCommands = [
 	["cat > filename", "Creates a new file"],
 	["cat filename", "Displays the file content"],
 	["cat file1 file2 > file3", "Joins two files (file1, file2) and stores the output in a new file (file3)"],
-	["mv file \"new file path\"", "Moves the files to the new location"],
+	//["mv file \"new file path\"", "Moves the files to the new location"],
 	["mv filename new_file_name", "Renames the file to a new filename"],
 	["sudo", "Allows regular users to run programs with the security privileges of the superuser or root"],
 	["rm filename", "Deletes a file"],
@@ -38,7 +60,7 @@ List<List<String>> linuxBasicCommands = [
 	["lp-d lp-P", "Specifies name of the printer"],
 	["apt-get", "Command used to install and update packages"],
 	["mail -s 'subject' -c 'cc-address' -b 'bcc-address' 'to-address'", "Command to send email"],
-	["mail -s \"Subject\" to-address < Filename", "Command to send email with attachment"]
+	//["mail -s \"Subject\" to-address < Filename", "Command to send email with attachment"]
 ];
 
 
@@ -63,7 +85,7 @@ List<List<String>> linuxEnvironmentVariables = [
 ];
 
 List<List<String>> liunxUserManagement = [
-	["echo $VARIABLE", "To display value of a variable"],
+	//["echo $VARIABLE", "To display value of a variable"],
 	["env", "Displays all environment variables"],
 	["VARIABLE_NAME= variable_value", "Create a new variable"],
 	["Unset", "Remove a variable"],
@@ -73,9 +95,9 @@ List<List<String>> liunxUserManagement = [
 
 List<List<String>> linuxNetworkCommands = [
 	["SSH username@ip-address or hostname",  "login into a remote Linux machine using SSH"],
-	["Ping hostname=\"\" or =\"\"",  "To ping and Analyzing network and host connections"],
+	//["Ping hostname=\"\" or =\"\"",  "To ping and Analyzing network and host connections"],
 	["dir",  "Display files in the current directory of a remote computer"],
-	["cd \"dirname\"",  "change directory to “dirname” on a remote computer"],
+	//["cd \"dirname\"",  "change directory to “dirname” on a remote computer"],
 	["put file",  "upload ‘file’ from local to remote computer"],
 	["get file",  "Download ‘file’ from remote to local computer"],
 	["quit",  "Logout"]
@@ -93,4 +115,4 @@ List<List<String>> linuxProcessCommands = [
   	["renice", "Changes priority of an already running process"],
   	["df", "Gives free hard disk space on your system"],
   	["free", "Gives free RAM on your system"]
-]
+];
