@@ -28,7 +28,13 @@ List<LinuxCommand> convertData(List<List<String>> command) {
 	return linuxCommands;
 }
 
-
+List<LinuxCommand> linuxCommands = [];
+linuxCommands.addAll(convertData(linuxBasicCommands));
+linuxCommands.addAll(convertData(linuxFilePermissionCommands));
+linuxCommands.addAll(convertData(linuxEnvironmentVariables));
+linuxCommands.addAll(convertData(linuxUserManagement));
+linuxCommands.addAll(convertData(linuxNetworkCommands));
+linuxCommands.addAll(convertData(linuxProcessCommands));
 
 
 List<List<String>> linuxBasicCommands = [
