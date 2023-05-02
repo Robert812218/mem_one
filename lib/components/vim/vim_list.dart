@@ -1,5 +1,35 @@
 // source: https://vim.rtorr.com/
 
+class VimCommand {
+	String name, description;
+	List<String> keystrokes;
+
+	VimCommand({
+		required this.name,
+		required this.description,
+		required this.keystrokes,
+	});
+}
+
+List<VimCommand> convertVimData(List<List<String>> command) {
+	List<VimCommand> vimCommands = [];
+	
+	for (var i = 0; i < command.length; i++) {
+		String name = command[i][0];
+		String description = command[i][1];
+		
+		List<String> keystrokes = command[i][0].split('');
+		
+		vimCommands.add(VimCommand(
+			name: name,
+			description: description,
+			keystrokes: keystrokes,
+		));
+	}
+
+	return vimCommands;
+}
+
 List<List<String>> vimGlobal = [   ["h[elp] keyword", "open help for keyword"],
    [":sav[eas] file", "save file as"],
    [":clo[se]", "close current pane"],
@@ -28,7 +58,7 @@ List<List<String>> vimCursorMovement = [   ["h", "move cursor left"],
    ["%", "move to matching character (default supported pairs: '()', '{}', '[]' - use :h matchpairs in vim for more info)"],
    ["0", "jump to the start of the line"],
    ["^", "jump to the first non-blank character of the line"],
-   ["$", "jump to the end of the line"],
+//  ["$", "jump to the end of the line"],
    ["g_", "jump to the last non-blank character of the line"],
    ["gg", "go to the first line of the document"],
    ["G", "go to the last line of the document"],
@@ -86,7 +116,7 @@ List<List<String>> vimEditing = [
   ["gu", "change to lowercase up to motion"],
   ["gU", "change to uppercase up to motion"],
   ["cc", "change (replace) entire line"],
-  ["c$ or C", "change (replace) to the end of the line"],
+//  ["c$ or C", "change (replace) to the end of the line"],
   ["ciw", "change (replace) entire word"],
   ["cw or ce", "change (replace) to the end of the word"],
   ["s", "delete character and substitute text"],
@@ -157,7 +187,7 @@ List<List<String>> vimMarksAndPositions = [
   ["`a", "jump to position of mark A"],
   ["y`a", "yank text to position of mark A"],
   ["`0", "go to the position where Vim was previously exited"],
-  ["\"", "go to the position when last editing this file"],
+//  ["\"", "go to the position when last editing this file"],
   ["`.", "go to the position of the last change in this file"],
   ["``", "go to the position before the last jump"],
   ["ju[mps]", "list of jumps"],
@@ -183,7 +213,7 @@ List<List<String>> vimCutAndPaste = [
    ["yw", "yank (copy) the characters of the word from the cursor position to the start of the next word"],
    ["yiw", "yank (copy) word under the cursor"],
    ["yaw", "yank (copy) word under the cursor and the space after or before it"],
-   ["y\$ or Y", "yank (copy) to end of line"],
+//   ["y\$ or Y", "yank (copy) to end of line"],
    ["p", "put (paste) the clipboard after cursor"],
    ["P", "put (paste) before cursor"],
    ["gp", "put (paste) the clipboard after cursor and leave cursor after the new text"],
@@ -194,7 +224,7 @@ List<List<String>> vimCutAndPaste = [
    ["diw", "delete (cut) word under the cursor"],
    ["daw", "delete (cut) word under the cursor and the space after or before it"],
    [":3,5d", "delete lines starting from 3 to 5"],
-   ["d\$ or D", "delete (cut) to the end of the line"],
+//   ["d\$ or D", "delete (cut) to the end of the line"],
    ["x", "delete (cut) character"],
 ];
 // Tip You can also use the following characters to specify the range:
@@ -231,7 +261,7 @@ List<List<String>> vimExiting = [
 List<List<String>> vimSearchAndReplace = [
    ["/pattern", "search for pattern"],
    ["?pattern", "search backward for pattern"],
-   ["\\vpattern", "'very magic' pattern: non-alphanumeric characters are interpreted as special regex symbols (no escaping needed)"],
+//   ["\\vpattern", "'very magic' pattern: non-alphanumeric characters are interpreted as special regex symbols (no escaping needed)"],
    ["n", "repeat search in same direction"],
    ["N", "repeat search in opposite direction"],
    [":%s/old/new/g", "replace all old with new throughout file"],

@@ -9,7 +9,7 @@ class LinuxCommand{
 	});
 }
 
-List<LinuxCommand> convertData(List<List<String>> command) {
+List<LinuxCommand> convertLinuxData(List<List<String>> command) {
 	List<LinuxCommand> linuxCommands = [];
 		
 	for (var i = 0; i < command.length; i++) {
@@ -27,14 +27,6 @@ List<LinuxCommand> convertData(List<List<String>> command) {
 	
 	return linuxCommands;
 }
-
-List<LinuxCommand> linuxCommands = [];
-linuxCommands.addAll(convertData(linuxBasicCommands));
-linuxCommands.addAll(convertData(linuxFilePermissionCommands));
-linuxCommands.addAll(convertData(linuxEnvironmentVariables));
-linuxCommands.addAll(convertData(linuxUserManagement));
-linuxCommands.addAll(convertData(linuxNetworkCommands));
-linuxCommands.addAll(convertData(linuxProcessCommands));
 
 
 List<List<String>> linuxBasicCommands = [
