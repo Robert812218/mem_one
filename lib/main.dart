@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mem_one/components/linux/linux_list.dart';
-import 'package:mem_one/components/vim/vim_list.dart';
+import 'vim_page.dart';
+
 
 void main() {
   // debugPaintSizeEnabled = true;
@@ -25,14 +25,14 @@ class MyApp extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.only(bottom: 8),
                   child: const Text(
-                    'Vim stuff',
+		    'Vim stuff',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
                 Text(
-                  'Vim stuff text',
+		  'Text for Vim stuff',
                   style: TextStyle(
                     color: Colors.grey[500],
                   ),
@@ -64,7 +64,7 @@ class MyApp extends StatelessWidget {
     Widget textSection = const Padding(
       padding: EdgeInsets.all(32),
       child: Text(
-        'Lorem ipsum sat dolor amet.',
+	'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         softWrap: true,
       ),
     );
@@ -78,7 +78,7 @@ class MyApp extends StatelessWidget {
         body: ListView(
           children: [
             Image.asset(
-              'images/vim.jpg',
+              'images/lake.jpg',
               width: 600,
               height: 240,
               fit: BoxFit.cover,
